@@ -1,10 +1,13 @@
 module vmA5 {
-  'use strict';    
-  
+  'use strict';
+
   interface IProjectsScope extends ng.IScope {
-       blocks:any;
-       boilers:any; 
-      }
+    blocks: any;
+    boilers: any;
+    NavigateTo();
+    selectedBlock:any;
+      
+  }
 
   export class MesaBlockController {
 
@@ -22,16 +25,18 @@ module vmA5 {
       this.$location = $location;
       this.vmWebAPI = vmWebAPI;
       this.activate();
+      this.$scope.NavigateTo = function() {
+        $location.path('/MesaBlock/' + $scope.selectedBlock.sName);     // need to add the block to load the form on 
+      };
     }
 
     activate() {
       var self: MesaBlockController = this;
 
       var OnComplete = function(data: any) {
- //       self.$log.debug('MesaBlockController.OnComplete');
         self.$scope.blocks = data;
         self.$scope.boilers = self.$filter('filter')(data, { eComponentType: 'vm_mbt_boiler' }, true);
-        
+
       };
 
       var OnError = function(reason: any) {
@@ -40,11 +45,6 @@ module vmA5 {
 
       return this.vmWebAPI.getBlocks()
         .then(OnComplete, OnError);
-    }
-
-    NavigateTo = function() {
-      console.log (this.$scope);
-  //   this.$location.path('/MesaBlock/' + this.$scope.selectedBlock.sName);     // need to add the block to load the form on 
     }
   }
 }

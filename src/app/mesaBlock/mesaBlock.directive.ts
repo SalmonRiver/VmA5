@@ -15,8 +15,6 @@ module vmA5 {
                     blockDialogUrl = 'app/mesaBlock/Blocks/empty.html'
                 }
                 else {
-
-
                     // get componenttype from?? 
                     var eBlockType: eCompoentType = eCompoentType.Boiler;
 
@@ -29,10 +27,7 @@ module vmA5 {
                             blockDialogUrl = 'app/mesaBlock/Blocks/boiler.html';
                     }
                 }
-
-
                 return blockDialogUrl;
-
             },
         };
     }
