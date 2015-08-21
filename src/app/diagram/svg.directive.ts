@@ -40,7 +40,8 @@ module vmA5 {
             }
             else if (scope.componentType > 1 && scope.componentType < 100) {
                 // this is a block and needs to show a dialog 
-                $location.path("/MesaBlock/" + scope.sBlockName);
+                //$location.path("/MesaBlock/" + scope.sBlockName);
+                
             }
         }
 
