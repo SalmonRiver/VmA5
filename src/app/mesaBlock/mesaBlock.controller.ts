@@ -14,9 +14,6 @@ module vmA5 {
     private $filter: ng.IFilterService;
     private vmWebAPI: VmWebAPI;
     
-  
-    
-     
     /** @ngInject */
     constructor($log: ng.ILogService, $scope: IProjectsScope, $location: ng.ILocationService, $filter: ng.IFilterService, vmWebAPI: VmWebAPI) {
       this.$log = $log;
@@ -34,6 +31,7 @@ module vmA5 {
  //       self.$log.debug('MesaBlockController.OnComplete');
         self.$scope.blocks = data;
         self.$scope.boilers = self.$filter('filter')(data, { eComponentType: 'vm_mbt_boiler' }, true);
+        
       };
 
       var OnError = function(reason: any) {
@@ -45,11 +43,9 @@ module vmA5 {
     }
 
     NavigateTo = function() {
-      this.$location.path('/MesaBlock/' + this.$scope.selectedBlock.sName);     // need to add the block to load the form on 
+      console.log (this.$scope);
+  //   this.$location.path('/MesaBlock/' + this.$scope.selectedBlock.sName);     // need to add the block to load the form on 
     }
-
-
-
   }
 }
 
