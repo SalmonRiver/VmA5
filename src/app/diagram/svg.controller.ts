@@ -1,20 +1,27 @@
 module vmA5 {
 	'use strict';
 
+	interface IProjectsScope extends ng.IScope {
+		open(); 
+	}
+
 	export class SvgController {
-		private $scope: any;
-
-
+		private $scope: IProjectsScope;
 
 		/* @ngInject */
-		constructor ( $scope: ng.IScope) {
-			this.$scope = $scope
-			this.$scope.dynamicPopover = {
-				content: 'Hello, World!',
-				templateUrl: 'app/mesaBlock/mesaBlock.html',
-				title: 'Mesa Block Form',
-				windowClass: 'app-modal-window'
+		constructor ( $scope: IProjectsScope, $modal) {
+			this.$scope = $scope;
+
+			this.$scope.open = function () {
+
+				var modalInstance = $modal.open({
+					templateUrl: '/app/mesaBlock/Blocks/boiler.html',
+					//size: size,
+					size: "lg"
+					});
 			};
+
 		}
 	}
-}
+
+};
