@@ -15,6 +15,7 @@ module vmA5 {
     private $filter: ng.IFilterService;
     private vmWebAPI: VmWebAPI;
     
+    
     /** @ngInject */
     constructor($log: ng.ILogService, $scope: ILocalScope, $location: ng.ILocationService, $filter: ng.IFilterService, vmWebAPI: VmWebAPI) {
       this.$log = $log;

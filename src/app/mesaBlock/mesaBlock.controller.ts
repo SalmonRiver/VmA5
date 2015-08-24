@@ -30,6 +30,7 @@ module vmA5 {
       };
     }
 
+
     activate() {
       var self: MesaBlockController = this;
 

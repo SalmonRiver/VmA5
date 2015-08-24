@@ -14,6 +14,7 @@ module vmA5 {
                 if (path == '/MesaBlock') {
                     blockDialogUrl = 'app/mesaBlock/blocks/empty.html'
                 }
+                
                 else {
                     // get componenttype from?? 
                     var eBlockType: eCompoentType = eCompoentType.Boiler;

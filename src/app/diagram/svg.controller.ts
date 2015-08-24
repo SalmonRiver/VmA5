@@ -15,7 +15,7 @@ module vmA5 {
 			this.$scope.open = function () {
 
 				var modalInstance = $modal.open({
-					templateUrl: '/app/mesaBlock/Blocks/boiler.html',
+					templateUrl: '/app/mesaBlock/Blocks/boiler/boiler.html',
 					//size: size,
 					size: "lg"
 					});
