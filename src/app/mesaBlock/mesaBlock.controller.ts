@@ -36,7 +36,6 @@ module vmA5 {
       var OnComplete = function(data: any) {
         self.$scope.blocks = data;
         self.$scope.boilers = self.$filter('filter')(data, { eComponentType: 'vm_mbt_boiler' }, true);
-
       };
 
       var OnError = function(reason: any) {

@@ -10,9 +10,9 @@ module vmA5 {
             templateUrl: function(elem, attrs) {
                 var path: string = $location.path();
                 var blockDialogUrl: string;
-                console.log(path);
+           //     console.log(path);
                 if (path == '/MesaBlock') {
-                    blockDialogUrl = 'app/mesaBlock/Blocks/empty.html'
+                    blockDialogUrl = 'app/mesaBlock/blocks/empty.html'
                 }
                 else {
                     // get componenttype from?? 
@@ -20,11 +20,11 @@ module vmA5 {
 
                     switch (eBlockType) {
                         case eCompoentType.Boiler:
-                            blockDialogUrl = 'app/mesaBlock/Blocks/boiler.html';
-                            console.log('found a boiler');
+                            blockDialogUrl = 'app/mesaBlock/blocks/boiler/boiler.html';
+                            console.log('found a boiler ' + path );
                             break;
                         default:
-                            blockDialogUrl = 'app/mesaBlock/Blocks/boiler.html';
+                            blockDialogUrl = 'app/mesaBlock/blocks/empty.html';
                     }
                 }
                 return blockDialogUrl;

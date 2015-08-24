@@ -5,6 +5,7 @@
 /// <reference path="main/main.controller.ts" />
 /// <reference path="mesaBlock/mesaBlock.controller.ts" />
 /// <reference path="../app/mesaBlock/mesaBlock.directive.ts" />
+/// <reference path="mesaBlock/blocks/boiler/boiler.controller.ts" />
 /// <reference path="diagram/svg.controller.ts" />
 /// <reference path="../app/diagram/svg.directive.ts" />
 /// <reference path="../app/components/navbar/navbar.directive.ts" />
@@ -34,6 +35,7 @@ module vmA5 {
     .service('vmWebAPI', VmWebAPI)
     .controller('MainController', MainController)
     .controller('MesaBlockController', MesaBlockController)
+    .controller('BoilerController', BoilerController)
     .controller('SvgController', SvgController)
     .directive('acmeNavbar', acmeNavbar)
     .directive('acmeMalarkey', acmeMalarkey)

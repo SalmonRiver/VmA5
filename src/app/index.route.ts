@@ -20,6 +20,7 @@ module vmA5 {
           controller: 'MesaBlockController',
           controllerAs: 'mesaBlock'
         })
+
         .when('/svg/:DiagramName', {
           templateUrl: 'app/diagram/svg.html',
           controller: 'SvgController',
