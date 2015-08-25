@@ -2,69 +2,103 @@
     <tabset vertical="false" type="pills">
         <tab heading="Inputs">
             <br>
-            <div class="row">
-                <div class="col-lg-4 col-sm-12">
-                    <div class="row">Name &nbsp
-                        <input type="text" value={{boiler.sBlockName}} disabled>
-                        <br>
-                        <br>
-                    </div>
-                    <div class="row small-box">
-                        <h5>Status </h5>
-                        <input type="radio" name="rbStatus" value="On" ng-model="boiler.status">&nbsp On
-                        <br>
-                        <input type="radio" name="rbStatus" value="Off" ng-model="boiler.status">&nbsp Off
-                        <br>
-                        <input type="radio" name="rbStatus" value="Unavailable" ng-model="boiler.status">&nbsp Unavailable
-                        <br>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading"> Name</div>
+                                    <div class="panel-body">
+                                        <input type="text" value={{boiler.sBlockName}} disabled>
 
-                    </div>
-                </div>
-                <div class="col-lg-8 col-sm-12" >
-                    <div class="row small-box">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <input id="rb1" type="radio" name="rbFlowOrDuty" ng-value="true" ng-model="boiler.bFlowIfTrue">&nbsp Flow</div>
-                            <div class="col-sm-8">
-                                <input type="number" value={{boiler.flow}} ng-disabled="!boiler.bFlowIfTrue"> &nbsp {{boiler.sFlowUnits}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <input type="radio" name="rbFlowOrDuty" ng-value="false" ng-model="boiler.bFlowIfTrue">&nbsp Duty</div>
-                            <div class="col-sm-8">
-                                <input type="number" value={{boiler.dDuty}} ng-disabled="boiler.bFlowIfTrue"> &nbsp {{boiler.sDutyUnits}}
+                                    </div>
+                                </div>
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading"> Status</div>
+                                    <div class="panel-body">
+                                        <input type="radio" name="rbStatus" value="On" ng-model="boiler.status">&nbsp On
+                                        <br>
+                                        <input type="radio" name="rbStatus" value="Off" ng-model="boiler.status">&nbsp Off
+                                        <br>
+                                        <input type="radio" name="rbStatus" value="Unavailable" ng-model="boiler.status">&nbsp Unavailable
+                                        <br>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <br>
-                    <div class="row">
-                        <input type="checkbox" name="cbHoldDutyConstant" value="Yes">&nbsp Hold duty constant at optimization</div>
-                    <br>
-                    <div class="row small-box">
-                        <div class="row">
-                            <div class="col-sm-4">Temperature</div>
-                            <div class="col-sm-8">
-                                <input type="number" value={{boiler.dTemperature}}>&nbsp {{boiler.sTemperatureUnits}}</div>
+                    <div class="col-md-8 col-sm-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                <div class="panel panel-primary">
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td>
+                                                <input id="rb1"  type="radio" name="rbFlowOrDuty" ng-value="true" ng-model="boiler.bFlowIfTrue">&nbsp Flow
+                                            </td>
+                                            <td>
+                                                <input type="number"  value={{boiler.flow}} ng-disabled="!boiler.bFlowIfTrue"> &nbsp {{boiler.sFlowUnits}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="radio" name="rbFlowOrDuty" ng-value="false" ng-model="boiler.bFlowIfTrue">&nbsp Duty
+                                            </td>
+                                            <td>
+                                                <input type="number" value={{boiler.dDuty}} ng-disabled="boiler.bFlowIfTrue"> &nbsp {{boiler.sDutyUnits}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <br>
+                                                <input type="checkbox" name="cbHoldDutyConstant" value="Yes">&nbsp Hold duty constant at optimization
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="panel panel-primary">
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td> Temperature </td>
+                                            <td>
+                                                <input type="number" value={{boiler.dTemperature}}> </td>
+                                            <td> {{boiler.sTemperatureUnits}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td> Efficiency </td>
+                                            <td>
+                                                <input type="number" value={{boiler.dEfficiency}}> </td>
+                                            <td> {{boiler.sEfficiencyUnits}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td> Blowdown </td>
+                                            <td>
+                                                <input type="number" value={{boiler.dBlowDown}}> </td>
+                                            <td> {{boiler.sBlowDownUnits}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading"> Exhaust Pressure </div>
+
+                                    <table class="table-condensed">
+                                        <tr>
+                                            <td>
+                                                <input type="radio" name="rbExhaustPressure" ng-value="true" ng-model="boiler.bExhaustPressureIfTrue"> Outlet Header Pressure
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="radio" name="rbExhaustPressure" ng-value="false" ng-model="boiler.bExhaustPressureIfTrue">
+
+                                                <input type="number" value={{boiler.dPressure}}> &nbsp {{boiler.sPressureUnits}}
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-4">Efficiency</div>
-                            <div class="col-sm-8">
-                                <input type="number" value={{boiler.dEfficiency}}>&nbsp {{boiler.sEfficiencyUnits}}</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-4">Blowdown</div>
-                            <div class="col-sm-8">
-                                <input type="number" value={{boiler.dBlowDown}}>&nbsp {{boiler.sBlowDownUnits}}</div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <h5>Exhaust Pressure</h5>
-                        <div class="col-sm-12">
-                            <input type="radio" name="rbExhaustPressure" ng-value="true" ng-model="boiler.bExhaustPressureIfTrue">&nbsp Outlet Header Pressure
-                            <br>
-                            <input type="radio" name="rbExhaustPressure" ng-value="false" ng-model="boiler.bExhaustPressureIfTrue"> &nbsp
-                            <input type="number" value={{boiler.dPressure}}>&nbsp {{boiler.sPressureUnits}}</div>
                     </div>
                 </div>
             </div>
@@ -76,9 +110,7 @@
         <tab heading="Block Cost">
         </tab>
         <tab heading="Description">
-            <div>
-                <textarea class="col-sm-10" ng-model="boiler.sDescription" rows="10" wrap="hard" />
-            </div>
+            <textarea class="form-control" ng-model="boiler.sDescription" rows="10" wrap="hard" />
         </tab>
     </tabset>
 </div>
