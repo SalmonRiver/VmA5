@@ -29,7 +29,7 @@ module vmA5 {
     }
     
   /** @ngInject */
-    export function shape($compile: any, $location: any, vmWebAPI: VmWebAPI): ng.IDirective {
+    export function shape($compile: any, $location: any, vmWebAPI: VmWebAPI, $modal): ng.IDirective {
 
 
         var onGetBlockNameComplete = function(scope) {
@@ -41,6 +41,12 @@ module vmA5 {
             else if (scope.componentType > 1 && scope.componentType < 100) {
                 // this is a block and needs to show a dialog 
                 //$location.path("/MesaBlock/" + scope.sBlockName);
+                    console.log(scope.sBlockName)
+                    var modalInstance = $modal.open({
+                    templateUrl: '/app/mesaBlock/Blocks/boiler/boiler.html',
+                    //size: size,
+                    size: "lg"
+                    });
                 
             }
         }

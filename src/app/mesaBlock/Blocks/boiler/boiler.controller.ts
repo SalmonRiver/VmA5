@@ -25,8 +25,8 @@ module vmA5 {
 
       this.$scope = $scope;
       this.$scope.boiler = new boiler();
-      this.$scope.boiler.sBlockName = $location.url().replace("/MesaBlock/", "")
-      this.$scope.boiler.dFlow = 11;
+      console.log($scope);
+      this.$scope.boiler.sBlockName = "E-5354"
       this.activate();
     }
 
