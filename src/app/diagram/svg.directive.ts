@@ -11,7 +11,7 @@ module vmA5 {
                 // TODO May need a name translator to find the file need a method to put the files in the correct location   
                 var url = $location.url();
                 var sPlantNameUrl = url.replace("/svg/", "assets/svg/") + ".svg";
-                console.log(sPlantNameUrl);
+           //     console.log(sPlantNameUrl);
                 return sPlantNameUrl;
                 //TODO  need to inject width="100%" height="100%"  into the SVG before displaying so it will fit the screen 
                 //TODO  need to strip hove features VISIO drops in
@@ -29,7 +29,7 @@ module vmA5 {
     }
     
   /** @ngInject */
-    export function shape($compile: any, $location: any, vmWebAPI: VmWebAPI, $modal): ng.IDirective {
+    export function shape($compile: any, $location: any, vmWebAPI: vmWebAPI, $modal): ng.IDirective {
 
 
         var onGetBlockNameComplete = function(scope) {
@@ -39,15 +39,10 @@ module vmA5 {
                 $location.path(sPlantNameUrl);
             }
             else if (scope.componentType > 1 && scope.componentType < 100) {
-                // this is a block and needs to show a dialog 
-                //$location.path("/MesaBlock/" + scope.sBlockName);
-                    console.log(scope.sBlockName)
                     var modalInstance = $modal.open({
-                    templateUrl: '/app/mesaBlock/Blocks/boiler/boiler.html',
-                    //size: size,
-                    size: "lg"
+                    templateUrl: 'app/mesaBlock/blocks/boiler/boiler.html',
+                    size: "lg"   // switch to md if possible
                     });
-                
             }
         }
 

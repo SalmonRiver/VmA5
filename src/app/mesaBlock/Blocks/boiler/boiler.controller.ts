@@ -2,6 +2,7 @@ module vmA5 {
   'use strict';
   interface ILocalScope extends ng.IScope {
     boiler: boiler;
+    hideSearch: string; 
   }
 
   enum eStatus { On = 1, Off = 2, Unavailable = 3, SlowRoll = 4, FastRoll = 5, CalibrateOnly = 6 };
@@ -13,11 +14,11 @@ module vmA5 {
     private $scope: ILocalScope;
     private $location: ng.ILocationService;
     private $filter: ng.IFilterService;
-    private vmWebAPI: VmWebAPI;
+    private vmWebAPI: vmWebAPI;
     
     
     /** @ngInject */
-    constructor($log: ng.ILogService, $scope: ILocalScope, $location: ng.ILocationService, $filter: ng.IFilterService, vmWebAPI: VmWebAPI) {
+    constructor($log: ng.ILogService, $scope: ILocalScope, $location: ng.ILocationService, $filter: ng.IFilterService, vmWebAPI: vmWebAPI) {
       this.$log = $log;
       this.$filter = $filter;
       this.$location = $location;
@@ -25,8 +26,13 @@ module vmA5 {
 
       this.$scope = $scope;
       this.$scope.boiler = new boiler();
-      console.log($scope);
-      this.$scope.boiler.sBlockName = "E-5354"
+
+      var iMbPos:number = $location.url().indexOf("MesaBlock")
+      
+      if (iMbPos > 0) this.$scope.boiler.sBlockName = $location.url().replace("/MesaBlock/", "")
+      else this.$scope.boiler.sBlockName = "BOILER-2-FO";
+
+
       this.activate();
     }
 
@@ -96,7 +102,7 @@ module vmA5 {
       }
 
       if (MesaBlockValues.PropertyIndex == '7') {
-      //  console.log("flow found " + MesaBlockValues.StringValue);
+        //  console.log("flow found " + MesaBlockValues.StringValue);
         this.dFlow = MesaBlockValues.StringValue;
         if (this.dFlow > 0) this.bFlowIfTrue = true
         else this.bFlowIfTrue = false;
@@ -121,7 +127,7 @@ module vmA5 {
       else if (MesaBlockValues.PropertyIndex == '90') {
         var iStatus = MesaBlockValues.StringValue;
         this.status = eStatus[iStatus];
-     //   console.log(this.status);
+        //   console.log(this.status);
       }
     }
   }

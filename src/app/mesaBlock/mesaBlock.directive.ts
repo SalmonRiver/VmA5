@@ -10,7 +10,6 @@ module vmA5 {
             templateUrl: function(elem, attrs) {
                 var path: string = $location.path();
                 var blockDialogUrl: string;
-           //     console.log(path);
                 if (path == '/MesaBlock') {
                     blockDialogUrl = 'app/mesaBlock/blocks/empty.html'
                 }
@@ -22,7 +21,7 @@ module vmA5 {
                     switch (eBlockType) {
                         case eCompoentType.Boiler:
                             blockDialogUrl = 'app/mesaBlock/blocks/boiler/boiler.html';
-                            console.log('found a boiler ' + path );
+                         //   console.log('found a boiler ' + path );
                             break;
                         default:
                             blockDialogUrl = 'app/mesaBlock/blocks/empty.html';

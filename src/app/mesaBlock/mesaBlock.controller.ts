@@ -5,8 +5,7 @@ module vmA5 {
     blocks: any;
     boilers: any;
     NavigateTo();
-    selectedBlock:any;
-      
+    selectedBlock: any;
   }
 
   export class MesaBlockController {
@@ -15,10 +14,10 @@ module vmA5 {
     private $scope: IProjectsScope;
     private $location: ng.ILocationService;
     private $filter: ng.IFilterService;
-    private vmWebAPI: VmWebAPI;
+    private vmWebAPI: vmWebAPI;
     
     /** @ngInject */
-    constructor($log: ng.ILogService, $scope: IProjectsScope, $location: ng.ILocationService, $filter: ng.IFilterService, vmWebAPI: VmWebAPI) {
+    constructor($log: ng.ILogService, $scope: IProjectsScope, $location: ng.ILocationService, $filter: ng.IFilterService, vmWebAPI: vmWebAPI) {
       this.$log = $log;
       this.$scope = $scope;
       this.$filter = $filter;

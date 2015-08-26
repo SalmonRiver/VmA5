@@ -32,7 +32,7 @@ module vmA5 {
     .run(RunBlock)
     .service('githubContributor', GithubContributor)
     .service('webDevTec', WebDevTecService)
-    .service('vmWebAPI', VmWebAPI)
+    .service('vmWebAPI', vmWebAPI)
     .controller('MainController', MainController)
     .controller('MesaBlockController', MesaBlockController)
     .controller('BoilerController', BoilerController)

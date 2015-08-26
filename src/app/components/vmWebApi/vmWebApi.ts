@@ -2,7 +2,8 @@ module vmA5 {
 
   'use strict';
 
-  export class VmWebAPI {
+  /** @ngInject */
+  export class vmWebAPI {
 
     private vmesaURL: string;
     private getBlocksUrl: string;
@@ -52,8 +53,10 @@ module vmA5 {
       // fixme need to add this feature to the VmWebApi
       return this.$http.get(this.vmesaURL) // find correct URL
         .then(function(response: any) {
+         // console.log (scope);
+          
           if (scope.componentType == 103) {
-            scope.sBlockName = 'alky';
+            scope.sBlockName = 'BoilerPlant';  //FIX ME 
             }
           else {
             scope.sBlockName = 'Waste Heat LP Steam'; // fIXME
