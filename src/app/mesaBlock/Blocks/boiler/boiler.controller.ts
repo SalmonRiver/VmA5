@@ -2,7 +2,7 @@ module vmA5 {
   'use strict';
   interface ILocalScope extends ng.IScope {
     boiler: boiler;
-    hideSearch: string; 
+    hideSearch: string;
   }
 
   enum eStatus { On = 1, Off = 2, Unavailable = 3, SlowRoll = 4, FastRoll = 5, CalibrateOnly = 6 };
@@ -27,8 +27,8 @@ module vmA5 {
       this.$scope = $scope;
       this.$scope.boiler = new boiler();
 
-      var iMbPos:number = $location.url().indexOf("MesaBlock")
-      
+      var iMbPos: number = $location.url().indexOf("MesaBlock")
+
       if (iMbPos > 0) this.$scope.boiler.sBlockName = $location.url().replace("/MesaBlock/", "")
       else this.$scope.boiler.sBlockName = "BOILER-2-FO";
 
@@ -46,9 +46,11 @@ module vmA5 {
       };
 
       var OnError = function(reason: any) {
-        self.$log.debug('BoilerController.OnError');
-      };
 
+
+        console.log('BoilerController.OnError');
+      };
+      
 
       this.vmWebAPI.getBlockProperty(this.$scope.boiler.sBlockName, 7, 1)
         .then(OnComplete, OnError);

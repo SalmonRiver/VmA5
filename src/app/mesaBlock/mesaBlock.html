@@ -8,7 +8,7 @@
             <!-- drop down menu to select blocks, however i dont know how to call the rest of the data -->
             <div>
                 <h4> Mesa Boiler Viewer </h4>
-                <select ng-model="selectedBlock" ng-change="NavigateTo()" ng-options="block.sName for block in boilers">
+                <select ng-model="selectedBlock" ng-change="NavigateTo()" ng-options="block.sName for block in boilers" >
                     <option value="" disabled selected>Select a block</option>
                     <!---  ng-options is prefered way to polulate  https://docs.angularjs.org/api/ng/directive/ngOptions -->
                 </select>

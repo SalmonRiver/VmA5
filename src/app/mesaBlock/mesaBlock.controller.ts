@@ -39,12 +39,35 @@ module vmA5 {
       };
 
       var OnError = function(reason: any) {
+        
+        // fake so we get something in the dialog on a no connect 
+        
+        var block1:block =  new block('b-101');
+        var block2:block =  new block('b-102');
+        var block3:block =  new block('b-103');
+      
+
+        var blocks:Array<block> = new Array (block1,block2, block3);
+        
+        self.$scope.boilers = blocks;
+        
+        console.log('blocks loaded');
+      
+          
+      //  alert ("On error");
+        
         self.$log.debug('MesaBlockControler.OnError');
       };
 
       return this.vmWebAPI.getBlocks()
         .then(OnComplete, OnError);
     }
+  }
+  class block {
+    public sName: string;
+    
+    constructor(sNameIn:string) {
+      this.sName = sNameIn; }
   }
 }
 
