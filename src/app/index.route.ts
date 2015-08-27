@@ -29,6 +29,7 @@ module vmA5 {
         .otherwise({
           redirectTo: '/'
         });
+        
     }
   }
 }

@@ -11,7 +11,7 @@ module vmA5 {
                 // TODO May need a name translator to find the file need a method to put the files in the correct location   
                 var url = $location.url();
                 var sPlantNameUrl = url.replace("/svg/", "assets/svg/") + ".svg";
-           //     console.log(sPlantNameUrl);
+                console.log(sPlantNameUrl);
                 return sPlantNameUrl;
                 //TODO  need to inject width="100%" height="100%"  into the SVG before displaying so it will fit the screen 
                 //TODO  need to strip hove features VISIO drops in
@@ -21,7 +21,6 @@ module vmA5 {
                 angular.forEach(shapes, function(path, key) {
                     var shapeElement = angular.element(path);
                     shapeElement.attr("shape", "");
-
                     $compile(shapeElement)(scope);
                 })
             }
