@@ -1,11 +1,11 @@
 module vmA5 {
-     'use strict';
+    'use strict';
     // TODO  change the any's to correct types 
     /** @ngInject */
     export function svg2Diagram($compile: any, $location: any): ng.IDirective {
         return {
+            // there is a problem below for really big SVG files (like the plant)  the render does not complete.  there are notes on the internet opn this issue and with solutions 
             restrict: 'A',
-            //  templateUrl: 'svg/simple.svg',
             templateUrl: function(elem, attrs) {
                 // get the Plant to display name  from the URL;
                 // TODO May need a name translator to find the file need a method to put the files in the correct location   
@@ -27,7 +27,7 @@ module vmA5 {
         }
     }
     
-  /** @ngInject */
+    /** @ngInject */
     export function shape($compile: any, $location: any, vmWebAPI: vmWebAPI, $modal): ng.IDirective {
 
 
@@ -38,10 +38,10 @@ module vmA5 {
                 $location.path(sPlantNameUrl);
             }
             else if (scope.componentType > 1 && scope.componentType < 100) {
-                    var modalInstance = $modal.open({
+                var modalInstance = $modal.open({
                     templateUrl: 'app/mesaBlock/blocks/boiler/boiler.html',
                     size: "lg"   // switch to md if possible
-                    });
+                });
             }
         }
 
@@ -67,6 +67,8 @@ module vmA5 {
             return null;
         }
 
+
+
         var getComponentType = function(element) {
             var sRawComponentType = getVisioAttribute(element, "v:cp", "v:nameu", "ComponentType")
             if (sRawComponentType != null) {
@@ -85,6 +87,16 @@ module vmA5 {
                 return SourceGUID;
             }
         }
+        
+        
+        var getNameFromDesc = function(element) {
+         //   var comp = element[0]
+            var title = element[0].getElementsByTagName("title");
+            console.log ( title)
+            var titleText = title[0].getAttributeById('tagName');
+                        console.log ( titleText)
+            return titleText;
+        }
 
         return {
             restrict: 'A',
@@ -94,7 +106,12 @@ module vmA5 {
                     if (element.attr("id") != null) {
                         scope.componentType = getComponentType(element);
                         scope.sourceGuid = getSourceGUID(element)
+                       // console.log(element);
+                        
+                        var sName = getNameFromDesc(element); 
+
                         if (scope.sourceGuid != null) {
+                            
                             vmWebAPI.getBlockNameFromGuidAndAct(scope)
                                 .then(onGetBlockNameComplete, onGetBlockNameError)
                         }
