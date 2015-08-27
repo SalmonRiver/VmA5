@@ -32,19 +32,14 @@ module vmA5 {
     };
 
     getBlockProperty = function(sBlockName: string, iPropertyIndex: number, iSolutuionIndex: number) {
-      
-      //  console.log ("getBlockProperty sBlockName=" + sBlockName );
-      
       var BlockNameArgUrl: string = '\'' + sBlockName + '\'';
       var PropertyIndexUrl: string = ' and PropertyIndex eq ' + iPropertyIndex;
       var SolutionUrl: string = ' and Solution eq ' + iSolutuionIndex;
       var DetailUrl: string = this.blockDetailUrl + BlockNameArgUrl + PropertyIndexUrl + SolutionUrl;
-      //console.log(DetailUrl);
 
       return this.$http.get(DetailUrl)
         .then(function(response: any) {
           var mbReturn = response.data.value[0];
-          //console.log(mbReturn);
           return mbReturn;
         });
     };
@@ -56,19 +51,18 @@ module vmA5 {
           console.log(scope.sourceGuid);
 
           if (scope.componentType == 103) {
-            
-// this is just a simple hard coding  from file examination
+            // this is just a simple hard coding  from file examination
             switch (scope.sourceGuid) {
-              case "BC066933-9C4E-4C37-94B8-037FED689D91":
+              case 'BC066933-9C4E-4C37-94B8-037FED689D91':
                 scope.sBlockName = 'BoilerPlant';
                 break;
-              case "76A920B2-370E-4603-B13F-F398AAFD6BA6":
+              case '76A920B2-370E-4603-B13F-F398AAFD6BA6':
                 scope.sBlockName = 'Alky';
                 break;
-              case "CF58A680-FFEE-41ED-AB03-D9AB9EEFFCA2":
+              case 'CF58A680-FFEE-41ED-AB03-D9AB9EEFFCA2':
                 scope.sBlockName = 'crude';
                 break;
-              case "B9ACD43A-D9C8-4F85-9ED6-8F6110CF7EFF":
+              case 'B9ACD43A-D9C8-4F85-9ED6-8F6110CF7EFF':
                 scope.sBlockName = 'fcc';
                 break;
               default:
@@ -78,7 +72,7 @@ module vmA5 {
           }
           else {
             scope.sBlockName = 'Waste Heat LP Steam'; // fIXME
-          }
+          };
           return scope;
         });
     }
