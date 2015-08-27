@@ -88,15 +88,7 @@ module vmA5 {
             }
         }
         
-        
-        var getNameFromDesc = function(element) {
-         //   var comp = element[0]
-            var title = element[0].getElementsByTagName("title");
-            console.log ( title)
-            var titleText = title[0].getAttributeById('tagName');
-                        console.log ( titleText)
-            return titleText;
-        }
+       
 
         return {
             restrict: 'A',
@@ -106,9 +98,6 @@ module vmA5 {
                     if (element.attr("id") != null) {
                         scope.componentType = getComponentType(element);
                         scope.sourceGuid = getSourceGUID(element)
-                       // console.log(element);
-                        
-                        var sName = getNameFromDesc(element); 
 
                         if (scope.sourceGuid != null) {
                             
