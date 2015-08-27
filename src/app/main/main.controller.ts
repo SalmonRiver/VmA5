@@ -9,7 +9,7 @@ module vmA5 {
     public awesomeThings: ITecThing[];
     public webDevTec: WebDevTecService;
     public classAnimation: string;
-    private $scope: IProjectsScope;
+    public $scope: IProjectsScope;
 
     /* @ngInject */
     constructor ($timeout: ng.ITimeoutService, webDevTec: WebDevTecService, toastr: Toastr, $scope: IProjectsScope) {
@@ -17,8 +17,9 @@ module vmA5 {
       this.webDevTec = webDevTec;
       this.classAnimation = '';
       this.activate($timeout);
+      this.$scope = $scope;
       this.$scope.callData = function() {
-        console.log("hello");
+        alert("This is calling block data from Visual Mesa's web API.\n Here is the sample-call: \n\n http://demo1.svmesa.com/VmWebApi/Odata/VmBlockData?$filter=BlockName eq 'BOILER-2-Coal' and PropertyIndex eq 8 and Solution eq 1\n\nHere is the sample-response: \n\n{BlockName: BOILER-2-Coal, PropertyIndex: 8, Solution: 1, StringValue: 667.136, DataType: double}");
       };
     }
 

@@ -39,12 +39,12 @@ module vmA5 {
       var PropertyIndexUrl: string = ' and PropertyIndex eq ' + iPropertyIndex;
       var SolutionUrl: string = ' and Solution eq ' + iSolutuionIndex;
       var DetailUrl: string =  this.blockDetailUrl + BlockNameArgUrl + PropertyIndexUrl + SolutionUrl;
-  //     console.log(DetailUrl);
+       //console.log(DetailUrl);
 
       return this.$http.get(DetailUrl)
         .then(function(response: any) {
           var mbReturn = response.data.value[0];
-          // console.log(mbReturn);
+           //console.log(mbReturn);
           return mbReturn;
         });
     };
