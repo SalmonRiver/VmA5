@@ -1,17 +1,25 @@
 module vmA5 {
   'use strict';
 
+  interface IProjectsScope extends ng.IScope {
+    callData();
+  }
+
   export class MainController {
     public awesomeThings: ITecThing[];
     public webDevTec: WebDevTecService;
     public classAnimation: string;
+    private $scope: IProjectsScope;
 
     /* @ngInject */
-    constructor ($timeout: ng.ITimeoutService, webDevTec: WebDevTecService, toastr: Toastr) {
+    constructor ($timeout: ng.ITimeoutService, webDevTec: WebDevTecService, toastr: Toastr, $scope: IProjectsScope) {
       this.awesomeThings = new Array();
       this.webDevTec = webDevTec;
       this.classAnimation = '';
       this.activate($timeout);
+      this.$scope.callData = function() {
+        console.log("hello");
+      };
     }
 
     activate($timeout: ng.ITimeoutService) {
