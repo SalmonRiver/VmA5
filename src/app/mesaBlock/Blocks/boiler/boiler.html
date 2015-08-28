@@ -10,41 +10,33 @@
                                 <div class="panel panel-primary">
                                     <div class="panel-heading"> Name</div>
                                     <div class="panel-body">
-                                        <input type="text" value={{boiler.sBlockName}} disabled>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Block Name" value={{boiler.sBlockName}} disabled>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="panel panel-primary">
                                     <div class="panel-heading"> Status</div>
                                     <div class="panel-body">
-                                        <table class="table-condensed">
-                                            <tr>
-                                                <td>
-                                                    <div class="input-group input-group-sm">
-                                                        <span class="input-group-addon">
-                                                <input type="radio" name="rbStatus" value="On" ng-model="boiler.status">&nbsp On
-                                            </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="input-group input-group-sm">
-                                                        <span class="input-group-addon">
-                                                <input type="radio" name="rbStatus" value="Off" ng-model="boiler.status">&nbsp Off
-                                            </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="input-group input-group-sm">
-                                                        <span class="input-group-addon">
-                                                <input type="radio" name="rbStatus" value="Unavailable" ng-model="boiler.status">&nbsp Unavailable
-                                            </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <form class"form-inline">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-addon">
+                                                        <input type="radio" name="rbStatus" value="On" ng-model="boiler.status">&nbsp On
+                                                    </span>
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-addon">
+                                                        <input type="radio" name="rbStatus" value="Off" ng-model="boiler.status">&nbsp Off
+                                                    </span>
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-addon">
+                                                        <input type="radio" name="rbStatus" value="Unavailable" ng-model="boiler.status">&nbsp Unavailable
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -59,8 +51,8 @@
                                             <td>
                                                 <div class="input-group input-group-sm">
                                                     <span class="input-group-addon">
-                                                        
-                                                <input id="rb1" type="radio" name="rbFlowOrDuty" ng-value="true" ng-model="boiler.bFlowIfTrue">&nbsp Flow
+
+                                                        <input id="rb1" type="radio" name="rbFlowOrDuty" ng-value="true" ng-model="boiler.bFlowIfTrue">&nbsp Flow
                                                     </span>
                                                     <input type="number" value={{boiler.flow}} class="form-control" placeholder="enter a value">
                                                     <span class="input-group-addon">  {{boiler.sFlowUnits}} </span>
@@ -129,38 +121,38 @@
                                             <td>
                                                 <div class="input-group input-group-sm">
                                                     <span class="input-group-addon">
-                                                              <input type="radio" name="rbExhaustPressure" ng-value="true" ng-model="boiler.bExhaustPressureIfTrue"> Outlet Header Pressure
-                                                    </span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="input-group input-group-sm">
-                                                    <span class="input-group-addon">
-                                                        <input type="radio" name="rbExhaustPressure" ng-value="false" ng-model="boiler.bExhaustPressureIfTrue"> Exhaust Pressure
-                                                    </span>
-                                                    <input type="number" value={{boiler.dPressure}} class="form-control" placeholder="enter a value">
-                                                    <span class="input-group-addon">  {{boiler.dPressureUnits}} </span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
+                                                      <input type="radio" name="rbExhaustPressure" ng-value="true" ng-model="boiler.bExhaustPressureIfTrue"> Outlet Header Pressure
+                                                  </span>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+                                            <div class="input-group input-group-sm">
+                                                <span class="input-group-addon">
+                                                    <input type="radio" name="rbExhaustPressure" ng-value="false" ng-model="boiler.bExhaustPressureIfTrue"> Exhaust Pressure
+                                                </span>
+                                                <input type="number" value={{boiler.dPressure}} class="form-control" placeholder="enter a value">
+                                                <span class="input-group-addon">  {{boiler.dPressureUnits}} </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </tab>
-        <tab heading="Equipment Outputs">
-        </tab>
-        <tab heading="Stream Outputs">
-        </tab>
-        <tab heading="Block Cost">
-        </tab>
-        <tab heading="Description">
-            <textarea class="form-control" ng-model="boiler.sDescription" rows="10" wrap="hard" />
-        </tab>
-    </tabset>
+        </div>
+    </tab>
+    <tab heading="Equipment Outputs">
+    </tab>
+    <tab heading="Stream Outputs">
+    </tab>
+    <tab heading="Block Cost">
+    </tab>
+    <tab heading="Description">
+        <textarea class="form-control" ng-model="boiler.sDescription" rows="10" wrap="hard" />
+    </tab>
+</tabset>
 </div>
